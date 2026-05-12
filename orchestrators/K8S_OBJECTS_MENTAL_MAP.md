@@ -94,3 +94,35 @@ kubectl get all -A
 # Identify "Leaking" or "Pending" storage
 kubectl get pvc,pv
 ```
+
+---
+
+## 🐞 Debugging & Troubleshooting Commands
+
+When things go wrong, these are the essential commands to find the root cause.
+
+| Command | Purpose | When to use it? |
+| :--- | :--- | :--- |
+| `kubectl get pods` | Status check | "Is my pod running, crashing, or stuck in Pending?" |
+| `kubectl describe pod <name>` | Detailed events | "Why is my pod stuck in `ImagePullBackOff` or `Pending`?" Look at the bottom 'Events' section. |
+| `kubectl logs <name>` | Application logs | "My pod is Running, but the app is throwing 500 errors." |
+| `kubectl logs <name> --previous` | Previous crash logs | "My pod crashed and restarted. I need to see why the *last* one died." |
+| `kubectl exec -it <name> -- sh` | Shell access | "I need to look at the filesystem or test internal network inside the running container." |
+| `kubectl port-forward pod/<name> 8080:80` | Local testing tunnel | "I want to access this pod from my local browser without setting up a Service." (NEVER use in production) |
+
+---
+
+## 🌐 Networking: Local vs. Production
+
+Understanding how traffic flows to your pods is crucial for moving from local development to production.
+
+### Local Development / Debugging
+*   **Port-Forwarding (`kubectl port-forward`)**: Creates a temporary tunnel from your local machine (e.g., `localhost:8080`) directly to a specific Pod.
+*   **Why?** It bypasses all Kubernetes routing (Services, Ingress). It is strictly for testing and debugging. If the pod dies, the connection breaks.
+
+### Production (The Right Way)
+In production, Pods are ephemeral (they die and get new IPs automatically). You never route traffic directly to a Pod.
+
+1.  **Service (ClusterIP)**: Gives a **permanent internal IP** to a group of Pods. Microservices talk to each other using this Service name (e.g., `http://product-service:8080`).
+2.  **Service (LoadBalancer)**: Tells the Cloud Provider (AWS, Azure, GCP) to create a **physical Cloud Load Balancer** with a Public IP, and points external traffic to your Pods.
+3.  **Ingress**: The **API Gateway**. It usually sits behind a LoadBalancer and routes traffic based on URLs (e.g., `api.example.com` goes to the API Service, `app.example.com` goes to the Frontend Service). This is much cheaper than creating a LoadBalancer for every microservice.
