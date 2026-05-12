@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: product
-    image: mehmetozkaya/productservice:latest
+    image: shafikultanbir/productservice:latest
     ports:
     - containerPort: 8080

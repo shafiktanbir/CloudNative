@@ -7,7 +7,7 @@ Retrieve the Product microservice container images
 	https://hub.docker.com/repository/docker/mehmetozkaya/productservice/general
 
 The code for the Product ms and the Dockerfiles to build the container images has already been created in the last hands-on labs.
-	docker pull mehmetozkaya/productservice:latest
+	docker pull shafikultanbir/productservice:latest
 
 >2
 The Pod
@@ -28,6 +28,6 @@ metadata:
 spec:
   containers:
   - name: product
-    image: mehmetozkaya/productservice:latest
+    image: shafikultanbir/productservice:latest
     ports:
     - containerPort: 8080
