@@ -14,6 +14,16 @@ var app = builder.Build();
 SeedData(app.Services.GetRequiredService<List<Product>>());
 
 // Configure the HTTP request pipeline.
+
+// Health check / root endpoint
+app.MapGet("/", () => Results.Ok(new
+{
+    status = "healthy",
+    service = "ProductService",
+    version = "1.0.0",
+    message = "ProductService is up and running!"
+}));
+
 app.MapGet("/api/products", (List<Product> products) =>
 {
     return Results.Ok(products);
