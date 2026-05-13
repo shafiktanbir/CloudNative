@@ -1,0 +1,3 @@
+#!/bin/bash
+export PYTHONPATH="/home/shafikul/.cache/uv/archive-v0/vroaDw4kcveJt1550pXHx:$PYTHONPATH"
+python3 "$@"

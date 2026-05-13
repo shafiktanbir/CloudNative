@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: product
-        image: mehmetozkaya/productservice:latest
+        image: ghcr.io/shafiktanbir/productservice:latest
         ports:
         - containerPort: 8080
         env:
