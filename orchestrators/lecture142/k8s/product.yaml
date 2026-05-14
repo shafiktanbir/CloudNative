@@ -72,3 +72,5 @@ metadata:
 type: Opaque
 data:
   api_key: cHJvZHVjdC1hcGkta2V5
+  db_password: c3VwZXJzZWNyZXQ=
+  jwt_secret: bXlqd3RzZWNyZXQ=

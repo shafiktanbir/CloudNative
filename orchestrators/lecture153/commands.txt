@@ -38,6 +38,8 @@ Installing the Chart
 To install the chart with the release name my-release:
 
 helm repo add my-repo https://charts.bitnami.com/bitnami
+
+
 helm install my-release my-repo/wordpress
 
 Uninstalling the Chart
