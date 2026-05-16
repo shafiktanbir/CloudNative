@@ -91,3 +91,19 @@ This course is designed for software developers and architects who are intereste
 * Prepare for System Design Architecture Interview exams.
 
 By the end of this course, you will gain real-world experience, you will have a solid understanding of the cloud-native ecosystem and will be ready to design, build, and deploy your own cloud-native applications using microservices, Kubernetes, service meshes, CI/CD pipelines, and more.
+
+---
+
+## 📚 Quick Reference — Cheat Sheets & Mental Maps
+
+Personal notes and command references built during the course for fast lookup:
+
+| File | Topic | Description |
+|------|-------|-------------|
+| [helm-cheatsheet.md](./orchestrators/helm-cheatsheet.md) | ⛵ Helm | Full Helm command reference + philosophy (Chart/Values/Release mental model, install/upgrade/rollback/uninstall, debugging, multi-env patterns) |
+| [k8s-cheatsheet.md](./orchestrators/k8s-cheatsheet.md) | ☸️ Kubernetes | Core `kubectl` commands for pods, deployments, services, namespaces, and troubleshooting |
+| [HOW_KUBERNETES_WORKS.md](./orchestrators/HOW_KUBERNETES_WORKS.md) | ☸️ Kubernetes Internals | Deep-dive into how Kubernetes works under the hood — control plane, scheduler, etcd, kubelet reconciliation loop |
+| [K8S_OBJECTS_MENTAL_MAP.md](./orchestrators/K8S_OBJECTS_MENTAL_MAP.md) | ☸️ K8s Objects | Visual mental map of all Kubernetes object types and how they relate to each other |
+| [ORCHESTRATORS_CHEATSHEET.md](./ORCHESTRATORS_CHEATSHEET.md) | ☸️ Orchestrators | High-level orchestrator concepts and patterns |
+
+> 💡 **Tip:** Start with `K8S_OBJECTS_MENTAL_MAP.md` to understand what each K8s object does, then use `k8s-cheatsheet.md` for the commands, and `helm-cheatsheet.md` once you're deploying via Helm.
